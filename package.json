@@ -1,6 +1,7 @@
 {
-  "name": "starter",
+  "name": "challenge-12",
   "version": "1.0.0",
+  "description": "## Description",
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -11,7 +12,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "inquirer": "^9.2.11"
   }
