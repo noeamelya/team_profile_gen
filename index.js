@@ -11,11 +11,11 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
-const { default: Choices } = require("inquirer/lib/objects/choices");
+// const { default: Choices } = require("inquirer/lib/objects/choices");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
-//  team array
+
 const teamProfile = [];
 
 // start of manager prompts 
@@ -49,13 +49,15 @@ const addManager = () => {
 };
 
 const addEmployee = () => {
-    return inquirer.prompt ([
-        {
-            type: `list`,
-            name: `role`,
-            message: "Please choose your employee's role",
-            Choices: [`Engineer`, `Intern`]
-        },
+    return new Promise((resolve, rej) => {
+        inquirer.prompt([
+            
+        // {
+        //     type: `list`,
+        //     name: `employeeType`,
+        //     message: "Use arrow to select the type of employee",
+        //     Choices: [`Engineer`, `Intern`]
+        // },
         {
             name: `name`,
             message: "What is the engineer's name?",
@@ -112,7 +114,7 @@ const addEmployee = () => {
         } else {
             return resolve();
         }
-    
+    })
     })
 };
 
