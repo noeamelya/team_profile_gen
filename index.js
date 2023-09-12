@@ -20,44 +20,54 @@ const teamProfile = [];
 
 // start of manager prompts 
 const addManager = () => {
-    return inquirer.prompt ([
-        {
-            type: 'input',
-            name: 'name',
-            message: 'Who is the manager of this team?',
-        },
-        {
-            type: 'input',
-            name: 'id',
-            message: "Please enter the manager's ID.",
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: "Please enter the manager's email.",
-        },
-        {
-            type: 'number',
-            name: 'officeNumber',
-            message: "Please enter the manager's office number",
-        }
-    ]).then(answers => {
-        const manager = new Manager (answers.name, answers.id, answers.email, answers.officeNumber);
-        teamProfile.push(manager); 
-        console.log(manager); 
-    });
-};
+        return new Promise((res, rej) => {
+            inquirer
+                .prompt([
+                    {
+                        type: "input",
+                        message: `What is the manager's name?`,
+                        name: "name",
+                    },
+                    {
+                        type: "input",
+                        message: "What is the manager's id?",
+                        name: "id",
+                    },
+                    {
+                        type: "input",
+                        message: "What is the manager's email?",
+                        name: "email",
+                    },
+                    {
+                        type: "input",
+                        message: "What is the manager's office number?",
+                        name: "officeNumber",
+                    },
+                ]).then(answers => {
+                    const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+                    teamProfile.push(manager);
+                    res();
+                });
+        });
+    };
 
 const addEmployee = () => {
     return new Promise((resolve, rej) => {
         inquirer.prompt([
             
-        // {
-        //     type: `list`,
-        //     name: `employeeType`,
-        //     message: "Use arrow to select the type of employee",
-        //     Choices: [`Engineer`, `Intern`]
-        // },
+         {
+                type: "list",
+                message: "Use arrow keys to select the next type of employee to enter:",
+                name: "employeeType",
+                choices: [
+                    "Engineer",
+                    "Intern",
+                    {
+                        name: "No more employees to add",
+                        value: false
+                    }
+                ]
+            },
         {
             name: `name`,
             message: "What is the engineer's name?",
