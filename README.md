@@ -19,15 +19,18 @@ User should clone the repository of the project from gitHub into th VS code and 
 
 ## Usage
 
+https://drive.google.com/file/d/1z6LH5DyXLuwDZGR8TO7r_GrAuOlLuCtg/view
 
-The outcome of the generated HTML’s appearance and functionality project:
+The output of the generated HTML’s appearance and functionality project:
 
-![HTML webpage titled “My Team” features five boxes listing employee names, titles, and other key info.](./Assets/14-object-oriented-programming-challenge-demo.png)
+![Watch this video](./assets/TeamProfileGen.gif)
 
+![output index.html](./assets/teamProfGen.png)
 
 
 ## License
-MIT
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Constributing
 
